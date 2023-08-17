@@ -102,15 +102,7 @@ kubectl get namespace
 ```
 
 ## treafik安装
-**命令**
-```
-docker run -d -p 8080:8080 -p 80:80 \
-    -v $PWD/traefik.toml:/etc/traefik/traefik.toml traefik:v2.2
-
-docker run -d -p 80:80 -p 443:443 -v $PWD/traefik.toml:/etc/traefik/traefik.toml -v /var/run/docker.sock:/var/run/docker.sock --name traefik traefik:v2.2
-
-
-```
+按照这个文档：`https://blog.bling.moe/post/14/`
 
 
 
