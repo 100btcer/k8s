@@ -74,6 +74,32 @@ spec:
     image: localhost:5000/your-image-name:tag
 
 ```
+## k8s一些命令行操作
+```
+1、创建控制器，拉取镜像
+kubectl create deployment my-golang-app --image=localhost:5000/my-golang-app
+
+2、查看创建好的控制器
+kubectl get deploy
+
+3、查看容器所在的pod运行情况
+kubectl get pod
+
+4、暴漏端口
+kubectl expose deployment my-golang-app --port=8888 --type=NodePort
+
+5、查看服务
+kubectl get service
+
+6、删除部署者
+kubectl delete deploy my-golang-app
+
+7、删除服务
+kubectl delete service my-golang-app
+
+8、查看命名空间
+kubectl get namespace
+```
 
 
 
