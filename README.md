@@ -119,6 +119,8 @@ kubectl get namespace
 按照这个文档：`https://blog.bling.moe/post/14/`
 
 
+测试
+
 
 
 
