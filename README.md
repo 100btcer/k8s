@@ -49,20 +49,20 @@ docker push localhost:5000/apiserver:latest
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-golang-app
+  name: apiserver
 spec:
   selector:
     matchLabels:
-      tier: my-golang-app
+      tier: apiserver
   replicas: 2
   template:
     metadata:
       labels:
-        tier: my-golang-app
+        tier: apiserver
     spec:
       containers:
-      - name: my-golang-app
-        image: localhost:5000/my-golang-app
+      - name: apiserver
+        image: localhost:5000/apiserver
         imagePullPolicy: IfNotPresent # This should be by default so
         ports:
         - containerPort: 8888
@@ -72,17 +72,17 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-golang-app-pod
+  name: apiserver-pod
 spec:
   containers:
-  - name: your-container
-    image: localhost:5000/your-image-name:tag
+  - name: apiserver-pod
+    image: localhost:5000/apiserver:latest
 
 ```
 ## k8s一些命令行操作
 ```
 1、创建控制器，拉取镜像
-kubectl create deployment my-golang-app --image=localhost:5000/my-golang-app
+kubectl create deployment apiserver --image=localhost:5000/apiserver
 
 2、查看创建好的控制器
 kubectl get deploy
@@ -91,16 +91,16 @@ kubectl get deploy
 kubectl get pod
 
 4、暴漏端口
-kubectl expose deployment my-golang-app --port=8888 --type=NodePort
+kubectl expose deployment apiserver --port=8888 --type=NodePort
 
 5、查看服务
 kubectl get service
 
 6、删除部署者
-kubectl delete deploy my-golang-app
+kubectl delete deploy apiserver
 
 7、删除服务
-kubectl delete service my-golang-app
+kubectl delete service apiserver
 
 8、查看命名空间
 kubectl get namespace
