@@ -1,5 +1,10 @@
 # k8s部署测试总体文档
 
+**开启本地仓库**
+```
+docker run -d -p 5000:5000 --restart=always --name registry registry:2
+```
+
 ## 编译golang
 **mac环境下编译linux程序**
 ```
@@ -27,15 +32,15 @@ ENTRYPOINT ["./main"]
 ```
 **制作镜像**
 ```
-docker build -t localhost:5000/my-glang-app .
+docker build -t apiserver .
 ```
-**开启本地仓库**
+**打tag，以便关联到本地仓库**
 ```
-docker run -d -p 5000:5000 --restart=always --name registry registry:2
+docker tag apiserver:latest localhost:5000/apiserver:latest
 ```
 **推送镜像到本地仓库**
 ```
-docker push localhost:5000/my-glang-app
+docker push localhost:5000/apiserver:latest
 ```
 
 ## k8s通过配置文件操作
