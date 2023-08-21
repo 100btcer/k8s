@@ -107,7 +107,7 @@ kubectl get namespace
 ```
 
 ## treafik安装
-按照这个文档：`https://blog.bling.moe/post/14/`
+按照这个文档：`https://blog.bling.moe/post/14/` 
 
 
 
