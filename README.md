@@ -67,6 +67,15 @@ spec:
         ports:
         - containerPort: 8888
 ```
+将上述文件保存为`apiserver.yaml`
+
+**使用kubectl命令应用配置文件，将资源规格上传到Kubernetes集群**
+```
+kubectl apply -f apiserver.yaml
+```
+
+
+
 **第二种只创建pod**
 ```
 apiVersion: v1
