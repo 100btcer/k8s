@@ -55,5 +55,7 @@ curl -H Host:golang.docker.localhost http://127.0.0.1/api/special/healthz
 ```
 docker-compose up -d --scale whoami=2
 ```
+------------------
+- "traefik.http.routers.my-router.middlewares=my-redirect-middleware"
 
 
