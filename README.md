@@ -122,6 +122,9 @@ kubectl get namespace
 测试
 
 
+nihao
+
+
 
 
 
