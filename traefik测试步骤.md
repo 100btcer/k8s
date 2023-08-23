@@ -132,6 +132,9 @@ docker tag testmiddb:latest localhost:5000/testmiddb:latest
 docker push localhost:5000/testmiddb:latest
 ```
 
+# 注意事项
+- 不推送到本地仓库，也是可以在`docker-compose.yaml`中使用本地镜像的
+
 
 
 
