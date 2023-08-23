@@ -90,4 +90,50 @@ networks:
 - 执行命令`docker-compose up`启动容器，在后台运行的话，执行`docker-compose up -d`
 - 打开`traefik`控制台`http://127.0.0.1:8080/dashboard`，可以看到服务都已经存在了
 - 测试请求`api`接口`curl -H Host:my-golang http://127.0.0.1/api/special/healthz`，正常会返回`{"code":"0000-0000","message":"请求成功","data":""}`
-- 
+- 如果中间件使用的是http返回500的，则请求直接到中间件返回的结果即终止，不会请求实际的接口
+
+# golang打包
+**mac平台打包linux平台**
+```
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build t2.go
+```
+
+# 制作镜像
+**Dockerfile**
+```
+# 指定基础镜像
+FROM centos:latest
+LABEL authors="docker-test"
+
+# 设置工作目录
+WORKDIR /app/gateway
+
+# 复制当前目录下的所有文件到工作目录
+COPY ./t2 .
+
+# 声明容器运行时需要暴露的端口
+EXPOSE 8086
+
+# 定参
+ENTRYPOINT ["./t2"]
+```
+**制作镜像**
+```
+docker build -t testmiddb .
+```
+
+**给镜像打tag**
+```
+docker tag testmiddb:latest localhost:5000/testmiddb:latest
+```
+
+**推送镜像到本地仓库**
+```
+docker push localhost:5000/testmiddb:latest
+```
+
+
+
+
+
+
