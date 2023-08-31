@@ -14,9 +14,9 @@
 ```
 docker run -it \
   -v /data/traefik/ide/config:/data/traefik/ide/config \
-  -v /data/traefik/ide/nginx/pem/7134471_eoside.peersafe.cn.pem:/opt/kubernetes/ssl/ca.pem \
-  -v /data/traefik/ide/nginx/pem/7134471_eoside.peersafe.cn.pem:/opt/kubernetes/ssl/admin.pem \
-  -v /data/traefik/ide/nginx/pem/7134471_eoside.peersafe.cn.pem:/opt/kubernetes/ssl/admin-key.pem \
+  -v /opt/kubernetes/ssl/ca-key.pem:/opt/kubernetes/ssl/ca.pem \
+  -v /opt/kubernetes/ssl/admin.pem:/opt/kubernetes/ssl/admin.pem \
+  -v /opt/kubernetes/ssl/admin-key.pem:/opt/kubernetes/ssl/admin-key.pem \
   -p 9800:9800 \
   ide_k8s_original:v1.2 \
   /bin/bash
