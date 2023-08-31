@@ -13,11 +13,11 @@
 # 测试环境启动ide_k8s_original
 ```
 docker run -it \
-  -v /data/traefik/ide/config:/data/traefik/ide/config \
-  -v /opt/kubernetes/ssl:/opt/kubernetes/ssl \
-  -p 9800:9800 \
-  ide_k8s_original:v1.2 \
-  /bin/bash
+-v /data/traefik/ide/config:/data/traefik/ide/config \
+-v /opt/kubernetes/ssl:/opt/kubernetes/ssl \
+-p 8089:8089 \
+ide_k8s_original:v1.6 \
+/bin/bash
 ```
 
 
