@@ -1,4 +1,5 @@
 # ide_k8s_original
+- 打包编译，这样制作镜像更快：`docker save -o ide_k8s_original_v1.4.tar ide_k8s_original:v1.4`
 - 创建镜像，项目目录中，执行：`docker build -t ide_k8s_original:v1.0 .`
 - 打包镜像：`docker save -o ide_k8s_original_v1.0.tar ide_k8s_original:v1.0`
 
