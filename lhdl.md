@@ -20,4 +20,19 @@ ide_k8s_original:v1.6 \
 /bin/bash
 ```
 
+# 接口请求例子
+```
+curl --location --request GET 'http://127.0.0.1:8089/k8s/createNamescape' \
+--header 'User-Agent: Apifox/1.0.0 (https://apifox.com)' \
+--header 'Content-Type: application/json' \
+-d '{
+"apiVersion": "v1",
+"kind": "Namespace",
+"metadata": {
+"name": "ide"
+}
+}'
+```
+
+
 
