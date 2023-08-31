@@ -14,9 +14,7 @@
 ```
 docker run -it \
   -v /data/traefik/ide/config:/data/traefik/ide/config \
-  -v /opt/kubernetes/ssl/ca.pem:/opt/kubernetes/ssl/ca.pem \
-  -v /opt/kubernetes/ssl/admin.pem:/opt/kubernetes/ssl/admin.pem \
-  -v /opt/kubernetes/ssl/admin-key.pem:/opt/kubernetes/ssl/admin-key.pem \
+  -v /opt/kubernetes/ssl:/opt/kubernetes/ssl \
   -p 9800:9800 \
   ide_k8s_original:v1.2 \
   /bin/bash
