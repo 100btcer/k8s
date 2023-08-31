@@ -10,3 +10,16 @@
 - 打包镜像，项目上一层目录中，执行：`docker build -t apiserver:v1.1 -f build/Dockerfile .`
 - 打包镜像：`docker save -o apiserver_v1.1.tar apiserver:v1.1`
 
+# 测试环境启动ide_k8s_original
+```
+docker run -it \
+  -v /data/traefik/ide/config:/data/traefik/ide/config \
+  -v /data/traefik/ide/nginx/pem/7134471_eoside.peersafe.cn.pem:/opt/kubernetes/ssl/ca.pem \
+  -v /data/traefik/ide/nginx/pem/7134471_eoside.peersafe.cn.pem:/opt/kubernetes/ssl/admin.pem \
+  -v /data/traefik/ide/nginx/pem/7134471_eoside.peersafe.cn.pem:/opt/kubernetes/ssl/admin-key.pem \
+  -p 9800:9800 \
+  ide_k8s_original:v1.2 \
+  /bin/bash
+```
+
+
